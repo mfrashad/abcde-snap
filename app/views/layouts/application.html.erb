@@ -29,7 +29,7 @@
   -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          Snap
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -38,6 +38,12 @@
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" href="/upload">
+              <i class="material-icons">cloud_upload</i>
+              <p>Upload Data</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -169,6 +175,11 @@
 
         window_width = $(window).width();
 
+        Dropzone.options.myAwesomeDropzone = {
+          paramName: "file", // The name that will be used to transfer the file
+          maxFilesize: 2, // MB
+          previewTemplate: document.getElementById('preview-template').innerHTML,
+        };
         $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
