@@ -1,3 +1,8 @@
 <form action="/datum"
-      class="dropzone"
-      id="my-awesome-dropzone"></form>
+  class="dropzone"
+  id="my-awesome-dropzone">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <div class="fallback">
+    <input name="media" type="file" multiple />
+  </div>
+</form>
