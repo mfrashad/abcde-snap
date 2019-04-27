@@ -35,7 +35,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="javascript:void(0)">
+            <a class="nav-link" href="/">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
@@ -175,11 +175,6 @@
 
         window_width = $(window).width();
 
-        Dropzone.options.myAwesomeDropzone = {
-          paramName: "file", // The name that will be used to transfer the file
-          maxFilesize: 2, // MB
-          previewTemplate: document.getElementById('preview-template').innerHTML,
-        };
         $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
