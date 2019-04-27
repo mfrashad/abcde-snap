@@ -18,8 +18,8 @@ development:
   encoding: unicode
   database: abcde-snap_development
   pool:     5
-  username: abcde-snap
-  password:
+  username: snap
+  password: icad12345
   template: template0
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,8 +46,8 @@ test:
   encoding: unicode
   database: abcde-snap_test
   pool:     5
-  username: abcde-snap
-  password:
+  username: snap
+  password: icad12345
   template: template0
 
 production:
@@ -56,6 +56,6 @@ production:
   encoding: unicode
   database: abcde-snap_production
   pool:     5
-  username: abcde-snap
-  password:
+  username: snap
+  password: icad12345
   template: template0
