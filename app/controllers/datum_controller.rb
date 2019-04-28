@@ -1,3 +1,5 @@
+require 'csv'
+
 class DatumController < ApplicationController
   def create
     @data = Datum.new(file_name: params[:file])
@@ -6,6 +8,9 @@ class DatumController < ApplicationController
         format.json{ render :json => @data }
       end
     end
+  end
+
+  def index
   end
 end
   

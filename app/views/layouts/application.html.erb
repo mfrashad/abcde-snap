@@ -29,7 +29,7 @@
   -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Snap
+          Snap!
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -41,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item  ">
-            <a class="nav-link" href="/upload">
+            <a class="nav-link" href="/datum">
               <i class="material-icons">cloud_upload</i>
               <p>Upload Data</p>
             </a>
@@ -127,7 +127,7 @@
             <ul>
               <li>
                 <a href="https://www.creative-tim.com">
-                  Creative Tim
+                  Snap!
                 </a>
               </li>
             </ul>
@@ -153,7 +153,7 @@
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr_ofMzmfCdn4EZnUwUHQaXfqb3KsyDOk"></script>
   <!-- Chartist JS -->
   <script src="./assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -185,6 +185,9 @@
             }
           }
         });
+
+        
+        window.dispatchEvent(new Event('resize'))
 
         $('.fixed-plugin .active-color span').click(function() {
           $full_page_background = $('.full-page-background');
@@ -313,12 +316,12 @@
           // we simulate the window Resize so the charts will get updated in realtime.
           var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
-          }, 180);
+          }, 300);
 
           // we stop the simulation of Window Resize after the animations are completed
           setTimeout(function() {
             clearInterval(simulateWindowResize);
-          }, 1000);
+          }, 2000);
 
         });
       });
