@@ -28,7 +28,7 @@
   }
 })();
 
-
+var data = null;
 var breakCards = true;
 
 var searchVisible = 0;
@@ -141,10 +141,14 @@ $(window).resize(function() {
 
   // reset the seq for charts drawing animations
   seq = seq2 = 0;
-
-  setTimeout(function() {
-    md.initDashboardPageCharts();
-  }, 500);
+  $.ajax({url: "http://localhost:3000/datum/data", success: function(result){
+    data = result;
+    console.log(data);
+    setTimeout(function() {
+      md.initDashboardPageCharts();
+    }, 500);
+  }});
+  
 });
 
 
@@ -175,14 +179,23 @@ md = {
   },
 
   initDashboardPageCharts: function() {
+    
 
     if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
+      var item_labels = [];
+      var item_revenue = [];
+      var item_qty = [];
 
+      for(var i=0; i<data.length; i++){
+        item_labels[i] = data[i][4][1];
+        item_qty[i] = parseInt(data[i][7][1]);
+        item_revenue[i] = parseInt(data[i][8][1]) * item_qty[i];
+      }
       dataDailySalesChart = {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: item_labels,
         series: [
-          [12, 17, 7, 17, 23, 18, 38]
+          item_revenue
         ]
       };
 
@@ -191,7 +204,7 @@ md = {
           tension: 0
         }),
         low: 0,
-        high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        high: 200, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
